@@ -218,6 +218,14 @@ open class RTMPStream: NetStream {
     public static let defaultAudioBitrate: UInt32 = AudioConverter.defaultBitrate
     public static let defaultVideoBitrate: UInt32 = H264Encoder.defaultBitrate
 
+    public var firstAudioTimeStamp: CMTime {
+        muxer.firstAudioTimeStamp
+    }
+
+    public var firstVideoTimeStamp: CMTime {
+        muxer.firstVideoTimeStamp
+    }
+
     open weak var delegate: RTMPStreamDelegate?
     open internal(set) var info = RTMPStreamInfo()
     open private(set) var objectEncoding: RTMPObjectEncoding = RTMPConnection.defaultObjectEncoding
