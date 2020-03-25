@@ -470,7 +470,7 @@ open class RTMPStream: NetStream {
                 return
             }
 
-            self.info.resourceName = fileNameValid
+            self.info.resourceName = name
             self.howToPublish = type
             self.readyState = .publish
             self.FCPublish()
