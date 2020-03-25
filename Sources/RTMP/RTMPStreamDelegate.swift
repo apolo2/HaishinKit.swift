@@ -7,6 +7,9 @@ public protocol RTMPStreamDelegate: class {
     func didOutputAudio(_ buffer: AVAudioPCMBuffer, presentationTimeStamp: CMTime)
     func didOutputVideo(_ buffer: CMSampleBuffer)
     func clear()
+    func didOutputAudioData(data: Data)
+    func didOutputVideoData(data: Data)
+    
 }
 
 public extension RTMPStreamDelegate {
