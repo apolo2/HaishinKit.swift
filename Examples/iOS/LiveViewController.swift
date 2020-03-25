@@ -82,6 +82,7 @@ final class LiveViewController: UIViewController {
             logger.warn(error.description)
         }
         rtmpStream.addObserver(self, forKeyPath: "currentFPS", options: .new, context: nil)
+        rtmpStream.delegate = self
         lfView?.attachStream(rtmpStream)
     }
 
@@ -236,5 +237,19 @@ final class LiveViewController: UIViewController {
         if Thread.isMainThread {
             currentFPSLabel?.text = "\(rtmpStream.currentFPS)"
         }
+    }
+}
+
+extension LiveViewController: RTMPStreamDelegate {
+    func rtmpStreamDidClear(_ stream: RTMPStream) {
+        
+    }
+    
+    func rtmpStream(_ stream: RTMPStream, didPublishSufficientBW connection: RTMPConnection) {
+        
+    }
+    
+    func rtmpStream(_ stream: RTMPStream, didPublishInsufficientBW connection: RTMPConnection) {
+        
     }
 }

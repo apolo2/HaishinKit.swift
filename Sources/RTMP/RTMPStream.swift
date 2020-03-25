@@ -604,6 +604,7 @@ extension RTMPStream: RTMPMuxerDelegate {
         audioWasSent = true
         info.byteCount.mutate { $0 += Int64(length) }
         audioTimestamp = withTimestamp + (audioTimestamp - floor(audioTimestamp))
+        //delegate?.didOutputAudioData(data: buffer)
     }
 
     func sampleOutput(video buffer: Data, withTimestamp: Double, muxer: RTMPMuxer) {
@@ -624,6 +625,7 @@ extension RTMPStream: RTMPMuxerDelegate {
         info.byteCount.mutate { $0 += Int64(length) }
         videoTimestamp = withTimestamp + (videoTimestamp - floor(videoTimestamp))
         frameCount += 1
+        //delegate?.didOutputVideoData(data: buffer)
     }
 }
 
